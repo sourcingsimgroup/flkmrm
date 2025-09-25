@@ -394,15 +394,18 @@
             fileBase64: fileBase64.replace(/^data:application\/pdf;base64,/, '')
           };
 
+          // <-- PERUBAHAN PENTING: kirim tanpa header Content-Type untuk menghindari preflight OPTIONS -->
           const resp = await fetch(BACKEND_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
           });
 
+          const respText = await resp.text();
+          // log response server (bagus untuk debugging)
+          console.log('Server response:', resp.status, respText);
+
           if (!resp.ok) {
-            const txt = await resp.text();
-            throw new Error('Backend error: ' + resp.status + ' ' + txt);
+            throw new Error('Backend error: ' + resp.status + ' ' + respText);
           }
 
           form.reset();
