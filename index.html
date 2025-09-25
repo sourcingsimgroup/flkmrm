@@ -6,111 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Lamaran Kerja - SIMGROUP</title>
     <style>
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #D9ECF6;
-        margin: 0;
-        padding: 40px;
-      }
-      .container {
-        position: relative;
-        max-width: 700px;
-        width: 100%;
-        margin: -20px auto 0 auto;
-        background-color: #fff;
-        padding: 30px 40px;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-      .container::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 10px;
-        width: 100%;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        background-color: #003366;
-      }
-      .header { text-align: center; margin-bottom: 30px; }
-      .header img {
-        width: calc(100% + 80px);
-        height: auto;
-        display: block;
-        margin: -20px 0 15px -40px;
-        border-radius: 0;
-      }
-      @media (max-width: 600px) {
-        .header img { width: 100%; margin: 0; }
-      }
-      .header h1 { font-size: 33px; color: #333; margin: 0; font-weight: bold; }
-      .header p { font-size: 14px; color: #666; margin-top: -2px; }
+      body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #D9ECF6; margin:0; padding:40px; }
+      .container{ position:relative; max-width:700px; margin:-20px auto 0; background:#fff; padding:30px 40px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+      .container::before{content:"";position:absolute;top:0;left:0;height:10px;width:100%;border-top-left-radius:10px;border-top-right-radius:10px;background:#003366;}
+      .header{text-align:center;margin-bottom:30px;}
+      .header img{width:calc(100% + 80px);height:auto;display:block;margin:-20px 0 15px -40px;border-radius:0;}
+      @media (max-width:600px){ .header img{width:100%;margin:0;} }
+      .header h1{ font-size:33px;color:#333;margin:0;font-weight:700; }
+      .header p{ font-size:14px;color:#666;margin-top:-2px; }
 
-      .notice-wrapper { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0 30px 0; }
-      .notice-wrapper img { width: 80px; height: 80px; object-fit: contain; border-radius: 4px; margin-top: 5px; }
-      .notice {
-        background-color: #fff8e5;
-        border-left: 4px solid #ffa500;
-        padding: 10px 15px;
-        border-radius: 6px;
-        font-size: 16px;
-        color: #555;
-        flex: 1;
-        text-align: justify;
-      }
-      .notice a { color: #0077cc; text-decoration: none; font-weight: bold; }
+      .notice-wrapper { display:flex; align-items:flex-start; gap:10px; margin:20px 0 30px 0; }
+      .notice-wrapper img{ width:80px; height:80px; object-fit:contain; border-radius:4px; margin-top:5px; }
+      .notice { background:#fff8e5; border-left:4px solid #ffa500; padding:10px 15px; border-radius:6px; font-size:16px; color:#555; flex:1; text-align:justify; }
 
-      label { display: block; margin-top: 20px; font-weight: 600; color: #333; }
-      input, select, textarea {
-        width: 100%;
-        padding: 10px 1px;
-        margin-top: 6px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        font-size: 14px;
-        transition: border-color 0.3s ease;
-      }
-      input:focus, select:focus, textarea:focus { border-color: #0077cc; outline: none; }
+      label{ display:block; margin-top:20px; font-weight:600; color:#333; }
+      input, select, textarea { width:100%; padding:10px 1px; margin-top:6px; border:1px solid #ccc; border-radius:6px; font-size:14px; transition:border-color .3s; }
+      input:focus, select:focus, textarea:focus { border-color:#0077cc; outline:none; }
 
-      button {
-        margin-top: 30px;
-        width: 100%;
-        padding: 12px;
-        background-color: #0077cc;
-        color: white;
-        font-weight: bold;
-        font-size: 16px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-      button:hover { background-color: #005fa3; }
+      button { margin-top:30px; width:100%; padding:12px; background:#0077cc; color:#fff; font-weight:700; font-size:16px; border:none; border-radius:6px; cursor:pointer; transition:background-color .3s; }
+      button:hover { background:#005fa3; }
 
-      .modal { display: none; position: fixed; z-index: 100; padding-top: 120px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); }
-      .modal-content {
-        width: 80%;
-        max-width: 600px;
-        margin: auto;
-        padding: 25px;
-        border: 1px solid #888;
-        border-radius: 10px;
-        text-align: center;
-        background-color: #fff;
-      }
-      .modal-content h2 { color: #0077cc; }
-      .modal-content p { font-size: 14px; color: #444; margin-top: 10px; line-height: 1.5; }
-      .modal-content .ig-list { text-align: left; margin-top: 15px; font-size: 12px; }
-      .modal-content .ig-list strong { display: inline-block; width: 250px; }
-      .close-btn { margin-top: 20px; background-color: #0077cc; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; }
+      .modal { display:none; position:fixed; z-index:100; padding-top:120px; left:0; top:0; width:100%; height:100%; overflow:auto; background:rgba(0,0,0,0.4); }
+      .modal-content { width:80%; max-width:600px; margin:auto; padding:25px; border:1px solid #888; border-radius:10px; text-align:center; background:#fff; }
+      .modal-content h2 { color:#0077cc; }
+      .modal-content p { font-size:14px; color:#444; margin-top:10px; line-height:1.5; }
+      .modal-content .ig-list { text-align:left; margin-top:15px; font-size:12px; }
+      .modal-content .ig-list strong { display:inline-block; width:250px; }
+      .close-btn { margin-top:20px; background:#0077cc; color:#fff; padding:10px 20px; border:none; border-radius:6px; cursor:pointer; }
 
-      @media (max-width: 600px) {
-        .modal-content { width: 95%; padding: 20px; }
-        .modal-content .ig-list strong { width: 180px; }
-        body { padding: 20px; }
-        .container { padding: 15px; }
-        label, input, select, textarea, button { font-size: 14px; }
+      @media (max-width:600px) {
+        .modal-content { width:95%; padding:20px; }
+        .modal-content .ig-list strong { width:180px; }
+        body { padding:20px; }
+        .container { padding:15px; }
+        label, input, select, textarea, button { font-size:14px; }
       }
     </style>
   </head>
@@ -220,7 +149,10 @@
         <select name="provinsi_penempatan" required id="provinsi_penempatan">
           <option value="" disabled selected>-- Pilih --</option>
         </select>
-        <p style="font-size: 10px; color: red; margin-top: 3px; margin-bottom: -12px;">*Pilih Provinsi Penempatan agar dapat memilih Kota penempatan</p>
+
+        <p style="font-size: 10px; color: red; margin-top: 3px; margin-bottom: -12px;">
+          *Pilih Provinsi Penempatan agar dapat memilih Kota penempatan
+        </p>
 
         <label>Kota Minat Penempatan</label>
         <select name="kota_penempatan" required id="kota_penempatan">
@@ -258,251 +190,168 @@
     </div>
 
     <script>
-      /* -------------------------
-         CONFIG - sesuaikan bila perlu
-         ------------------------- */
+      /* CONFIG */
       const SPREADSHEET_ID = '1pvcbVAtI0IQgLlSItPz32pXB4QSQYgyq1TBbmEc14_k';
-      const SHEET_MASTER_NAME = 'master'; // sheet yang berisi opsi dropdown
-      // Backend Google Apps Script Web App (doPost) yang menulis ke sheet "Responses"
-      // Saya isi dengan URL yang pernah Anda pakai sebelumnya; ganti jika berbeda.
-      const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbws4SZe32wlzH8_EMGXkTCgbHp5qJDw-KKjPnJNxss1gLlaMiITHMCs2_6n5Sv6fTAHDQ/exec';
+      const SHEET_MASTER = 'master';
+      const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbyM6urVW7BNJtJhXfu2MEU2F1RP0SDfCnfb9OCRCtKPqMvwOidW9gktjMMgI_xUchI1/exec';
 
-      /* -------------------------
-         Utility: ambil data sheet 'master' lewat gviz/tq
-         (returns parsed rows/cols)
-         ------------------------- */
-      async function fetchSheetAsTable(sheetName) {
-        const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
+      // data structure
+      const dropdownData = {
+        sumberInformasi: [],      // col A (index 0)
+        durasi: [],               // col B (index 1)
+        minatPosisi: [],          // col D (index 3) -> datalist
+        pendidikan: [],           // col E (index 4)
+        kendaraan: [],            // col F (index 5)
+        sim: [],                  // col G (index 6)
+        provinsi: [],             // col H (index 7)
+        provinsiKotaMap: {},      // provinsi -> [kota] (col I index 8)
+        namaUniversitas: [],      // col J (index 9)
+        jurusan: []               // col K (index 10)
+      };
+
+      // ambil sheet master via gviz/tq
+      async function fetchMasterRows() {
+        const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_MASTER)}`;
         const res = await fetch(url);
         const txt = await res.text();
-        // gviz returns "/*O_o*/\ngoogle.visualization.Query.setResponse(...);"
         const jsonStr = txt.replace(/^[^\(]*\(/, '').replace(/\);?\s*$/, '');
         const obj = JSON.parse(jsonStr);
         const table = obj.table;
-        // columns:
-        const cols = table.cols.map(c => c.label);
-        // rows:
-        const rows = table.rows.map(r => r.c.map(cell => cell ? (cell.v ?? '') : ''));
-        return { cols, rows };
+        // map rows ke array fixed length (sampai kol K index 10)
+        const rows = table.rows.map(r => {
+          const cells = r.c || [];
+          const out = [];
+          for (let i = 0; i < 11; i++) {
+            out.push(cells[i] && (cells[i].v !== undefined && cells[i].v !== null) ? String(cells[i].v).trim() : '');
+          }
+          return out;
+        });
+        return rows;
       }
 
-      /* -------------------------
-         Map results master -> dropdownData
-         Anda bisa menyesuaikan kolom mana yang berisi opsi:
-         - Sumber Informasi Lowongan
-         - Durasi Pengalaman
-         - Minat Posisi (kita kumpulkan unik dari kolom MINAT POSISI KERJA PERTAMA/KE/dst)
-         - Pendidikan Terakhir
-         - Nama Universitas
-         - Jurusan
-         - Kepemilikan Kendaraan
-         - Kepemilikan SIM
-         - Provinsi (untuk domisili & penempatan)
-         - Provinsi -> Kota (jika ada)
-         ------------------------- */
-      const dropdownData = {
-        sumberInformasi: [],
-        durasi: [],
-        minatPosisi: [],
-        pendidikan: [],
-        namaUniversitas: [],
-        jurusan: [],
-        kendaraan: [],
-        sim: [],
-        provinsi: [],
-        provinsiKotaMap: {} // optional; diisi bila ada kolom kota terkait
-      };
-
+      // helper unique & sort sesuai lokal id
       function uniqueSorted(arr) {
-        return Array.from(new Set(arr.filter(Boolean))).sort();
+        return Array.from(new Set(arr.filter(Boolean))).sort((a,b)=> a.localeCompare(b, 'id'));
       }
 
-      async function populateDropdownsFromMaster() {
+      // populasi dropdown dari master, SKIP HEADER BARIS PERTAMA
+      async function populateFromMaster_skipHeader() {
         try {
-          const table = await fetchSheetAsTable(SHEET_MASTER_NAME);
-          const cols = table.cols;
-          const rows = table.rows;
+          const rows = await fetchMasterRows();
+          if (!rows || rows.length === 0) return;
 
-          // Cari index kolom berdasarkan label (case-insensitive)
-          const idx = {};
-          cols.forEach((c, i) => idx[c ? c.toString().toLowerCase().trim() : ('col'+i)] = i);
+          // Skip baris pertama (header)
+          const dataRows = rows.slice(1);
 
-          // beberapa nama kolom yang nampak di sheet:
-          // 'sumber informasi lowongan', 'durasi pengalaman kerja', 'minat posisi kerja pertama', ...
-          rows.forEach(r => {
-            const get = (keyCandidates) => {
-              for (const k of keyCandidates) {
-                const key = k.toLowerCase();
-                if (idx.hasOwnProperty(key)) {
-                  return r[idx[key]] || '';
-                }
-              }
-              // fallback: try exact known header keys
-              for (const k in idx) {
-                if (keyCandidates.includes(k)) return r[idx[k]] || '';
-              }
-              return '';
-            };
+          dataRows.forEach(cols => {
+            const colA = cols[0] || '';
+            const colB = cols[1] || '';
+            const colD = cols[3] || '';
+            const colE = cols[4] || '';
+            const colF = cols[5] || '';
+            const colG = cols[6] || '';
+            const colH = cols[7] || '';
+            const colI = cols[8] || '';
+            const colJ = cols[9] || '';
+            const colK = cols[10] || '';
 
-            // Ambil many candidates by label variants
-            const sumber = (r[idx['sumber informasi lowongan']] || '') || (r[idx['sumber informasi']]);
-            if (sumber) dropdownData.sumberInformasi.push(String(sumber).trim());
+            if (colA) dropdownData.sumberInformasi.push(colA);
+            if (colB) dropdownData.durasi.push(colB);
+            if (colD) dropdownData.minatPosisi.push(colD);
+            if (colE) dropdownData.pendidikan.push(colE);
+            if (colF) dropdownData.kendaraan.push(colF);
+            if (colG) dropdownData.sim.push(colG);
+            if (colH) dropdownData.provinsi.push(colH);
+            if (colJ) dropdownData.namaUniversitas.push(colJ);
+            if (colK) dropdownData.jurusan.push(colK);
 
-            const durasi = (r[idx['durasi pengalaman kerja']] || r[idx['durasi']]);
-            if (durasi) dropdownData.durasi.push(String(durasi).trim());
-
-            const min1 = r[idx['minat posisi kerja pertama']] || r[idx['minat posisi kerja pertamaa']] || r[idx['minat posisi kerja']] || r[idx['minat posisi kerja pertama']];
-            const min2 = r[idx['minat posisi kerja kedua']] || '';
-            const min3 = r[idx['minat posisi kerja ketiga']] || '';
-            [min1, min2, min3].forEach(x => { if (x) dropdownData.minatPosisi.push(String(x).trim()); });
-
-            const pendidikan = (r[idx['pendidikan terakhir']] || '');
-            if (pendidikan) dropdownData.pendidikan.push(String(pendidikan).trim());
-
-            const univ = (r[idx['nama sekolah / nama univeritas']] || r[idx['nama sekolah / nama universitas']] || r[idx['nama sekolah / nama universitas']]);
-            if (univ) dropdownData.namaUniversitas.push(String(univ).trim());
-
-            const jur = (r[idx['jurusan']] || '');
-            if (jur) dropdownData.jurusan.push(String(jur).trim());
-
-            const kendaraan = (r[idx['kepemilikan kendaraan']] || '');
-            if (kendaraan) dropdownData.kendaraan.push(String(kendaraan).trim());
-
-            const sim = (r[idx['kepemilikan sim aktif']] || r[idx['kepemilikan sim']] || '');
-            if (sim) dropdownData.sim.push(String(sim).trim());
-
-            // provinsi / kota: kita ambil dari kolom yg mengandung 'provinsi' / 'kota'
-            const prov = (r[idx['provinsi minat penempatan']] || r[idx['provinsi minat penempatan']] || r[idx['provinsi minat penempatan']] || r[idx['provinsi domisili']] || r[idx['provinsi minat penempatan'.toLowerCase()]]);
-            if (prov) dropdownData.provinsi.push(String(prov).trim());
-
-            const kota = (r[idx['kota minat penempatan']] || r[idx['kota minat penempatan']] || '');
-            if (prov && kota) {
-              const p = String(prov).trim();
-              const k = String(kota).trim();
-              dropdownData.provinsiKotaMap[p] = dropdownData.provinsiKotaMap[p] || [];
-              dropdownData.provinsiKotaMap[p].push(k);
+            if (colH && colI) {
+              const prov = colH;
+              const kota = colI;
+              if (!dropdownData.provinsiKotaMap[prov]) dropdownData.provinsiKotaMap[prov] = [];
+              dropdownData.provinsiKotaMap[prov].push(kota);
             }
           });
 
-          // unikkan & sort
+          // unique & sort
           dropdownData.sumberInformasi = uniqueSorted(dropdownData.sumberInformasi);
           dropdownData.durasi = uniqueSorted(dropdownData.durasi);
           dropdownData.minatPosisi = uniqueSorted(dropdownData.minatPosisi);
           dropdownData.pendidikan = uniqueSorted(dropdownData.pendidikan);
-          dropdownData.namaUniversitas = uniqueSorted(dropdownData.namaUniversitas);
-          dropdownData.jurusan = uniqueSorted(dropdownData.jurusan);
           dropdownData.kendaraan = uniqueSorted(dropdownData.kendaraan);
           dropdownData.sim = uniqueSorted(dropdownData.sim);
           dropdownData.provinsi = uniqueSorted(dropdownData.provinsi);
-          // unique kota lists
+          dropdownData.namaUniversitas = uniqueSorted(dropdownData.namaUniversitas);
+          dropdownData.jurusan = uniqueSorted(dropdownData.jurusan);
           for (const p in dropdownData.provinsiKotaMap) {
             dropdownData.provinsiKotaMap[p] = uniqueSorted(dropdownData.provinsiKotaMap[p]);
           }
 
-          // sekarang isi UI
-          populateUIFromDropdownData();
-
+          fillUI();
         } catch (err) {
-          console.error('Gagal ambil master sheet:', err);
-          // fallback sederhana: Anda bisa isi default options di sini jika perlu
+          console.error('Gagal load master (skip-header):', err);
         }
       }
 
-      function populateUIFromDropdownData() {
-        const universitList = document.getElementById('universitasList');
-        dropdownData.namaUniversitas.forEach(univ => {
-          const option = document.createElement('option');
-          option.value = univ;
-          universitList.appendChild(option);
+      // isi elemen UI dengan dropdownData
+      function fillUI() {
+        // sumber informasi
+        const sumberEl = document.getElementById('sumber_informasi');
+        dropdownData.sumberInformasi.forEach(v => { const o=document.createElement('option'); o.value=v; o.textContent=v; sumberEl.appendChild(o); });
+
+        // durasi
+        const durEl = document.getElementById('durasi_pengalaman');
+        dropdownData.durasi.forEach(v => { const o=document.createElement('option'); o.value=v; o.textContent=v; durEl.appendChild(o); });
+
+        // pendidikan
+        const pdEl = document.getElementById('pendidikan_terakhir');
+        dropdownData.pendidikan.forEach(v => { const o=document.createElement('option'); o.value=v; o.textContent=v; pdEl.appendChild(o); });
+
+        // kendaraan
+        const kndEl = document.getElementById('kepemilikan_kendaraan');
+        dropdownData.kendaraan.forEach(v => { const o=document.createElement('option'); o.value=v; o.textContent=v; kndEl.appendChild(o); });
+
+        // sim
+        const simEl = document.getElementById('kepemilikan_sim');
+        dropdownData.sim.forEach(v => { const o=document.createElement('option'); o.value=v; o.textContent=v; simEl.appendChild(o); });
+
+        // provinsi (domisili & penempatan)
+        const provDom = document.getElementById('provinsi_domisili');
+        const provPen = document.getElementById('provinsi_penempatan');
+        dropdownData.provinsi.forEach(v => {
+          const o1 = document.createElement('option'); o1.value=v; o1.textContent=v; provDom.appendChild(o1);
+          const o2 = document.createElement('option'); o2.value=v; o2.textContent=v; provPen.appendChild(o2);
         });
 
+        // provinsi -> kota handler
+        const kotaEl = document.getElementById('kota_penempatan');
+        provPen.addEventListener('change', function() {
+          kotaEl.innerHTML = '<option value="" disabled selected>-- Pilih --</option>';
+          const p = this.value;
+          const kotaList = dropdownData.provinsiKotaMap[p] || [];
+          kotaList.forEach(k => { const o=document.createElement('option'); o.value=k; o.textContent=k; kotaEl.appendChild(o); });
+        });
+
+        // minat datalist
         const minatList = document.getElementById('minatList');
-        dropdownData.minatPosisi.forEach(min => {
-          const opt = document.createElement('option');
-          opt.value = min;
-          minatList.appendChild(opt);
-        });
+        dropdownData.minatPosisi.forEach(v => { const o=document.createElement('option'); o.value=v; minatList.appendChild(o); });
 
-        const jurusanList = document.getElementById('jurusanList');
-        dropdownData.jurusan.forEach(j => {
-          const opt = document.createElement('option');
-          opt.value = j;
-          jurusanList.appendChild(opt);
-        });
+        // universitas datalist
+        const univList = document.getElementById('universitasList');
+        dropdownData.namaUniversitas.forEach(v => { const o=document.createElement('option'); o.value=v; univList.appendChild(o); });
 
-        const sumberDropdown = document.getElementById('sumber_informasi');
-        dropdownData.sumberInformasi.forEach(item => {
-          const option = document.createElement('option');
-          option.value = item; option.textContent = item;
-          sumberDropdown.appendChild(option);
-        });
-
-        const durasiDropdown = document.getElementById('durasi_pengalaman');
-        dropdownData.durasi.forEach(item => {
-          const option = document.createElement('option');
-          option.value = item; option.textContent = item;
-          durasiDropdown.appendChild(option);
-        });
-
-        const pendidikanDropdown = document.getElementById('pendidikan_terakhir');
-        dropdownData.pendidikan.forEach(item => {
-          const option = document.createElement('option');
-          option.value = item; option.textContent = item;
-          pendidikanDropdown.appendChild(option);
-        });
-
-        const simDropdown = document.getElementById('kepemilikan_sim');
-        dropdownData.sim.forEach(item => {
-          const option = document.createElement('option');
-          option.value = item; option.textContent = item;
-          simDropdown.appendChild(option);
-        });
-
-        const kendaraanDropdown = document.getElementById('kepemilikan_kendaraan');
-        dropdownData.kendaraan.forEach(item => {
-          const option = document.createElement('option');
-          option.value = item; option.textContent = item;
-          kendaraanDropdown.appendChild(option);
-        });
-
-        const provinsiDomisiliDropdown = document.getElementById('provinsi_domisili');
-        const provinsiDropdown = document.getElementById('provinsi_penempatan');
-        dropdownData.provinsi.forEach(item => {
-          const option1 = document.createElement('option');
-          option1.value = item; option1.textContent = item;
-          provinsiDomisiliDropdown.appendChild(option1);
-
-          const option2 = document.createElement('option');
-          option2.value = item; option2.textContent = item;
-          provinsiDropdown.appendChild(option2);
-        });
-
-        // saat provinsi penempatan berubah -> isi kota
-        const kotaDropdown = document.getElementById('kota_penempatan');
-        provinsiDropdown.addEventListener('change', function() {
-          kotaDropdown.innerHTML = '<option value="" disabled selected>-- Pilih --</option>';
-          const selectedProvinsi = this.value;
-          const kotaList = dropdownData.provinsiKotaMap[selectedProvinsi] || [];
-          kotaList.forEach(kota => {
-            const option = document.createElement('option');
-            option.value = kota; option.textContent = kota;
-            kotaDropdown.appendChild(option);
-          });
-        });
+        // jurusan datalist
+        const jurList = document.getElementById('jurusanList');
+        dropdownData.jurusan.forEach(v => { const o=document.createElement('option'); o.value=v; jurList.appendChild(o); });
       }
 
-      // Inisialisasi saat load
-      window.addEventListener('load', () => {
-        populateDropdownsFromMaster();
-      });
+      // init: load master (skip header)
+      window.addEventListener('load', populateFromMaster_skipHeader);
 
-      /* -------------------------
-         Handling form submit:
-         Kirim ke BACKEND_URL sebagai JSON
-         Backend diharapkan menulis ke sheet "Responses"
-         ------------------------- */
+      /* ---------------------------
+         FORM SUBMIT -> kirim ke Apps Script Web App
+         --------------------------- */
       const form = document.getElementById('dynamicForm');
-
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
@@ -513,7 +362,7 @@
 
         const fd = new FormData(form);
 
-        // Validasi file PDF
+        // validasi file pdf
         const file = fd.get('upload_cv');
         if (!file || file.type !== 'application/pdf') {
           alert('Mohon upload file PDF.');
@@ -531,22 +380,20 @@
         try {
           const fileBase64 = await toBase64(file);
 
-          // kumpulkan fields (kecuali file)
-          const payloadFields = {};
+          // collect fields except file
+          const fields = {};
           form.querySelectorAll('input[name], select[name], textarea[name]').forEach(inp => {
             if (inp.name === 'upload_cv') return;
-            const val = inp.value;
-            payloadFields[inp.name] = val;
+            fields[inp.name] = inp.value;
           });
 
           const payload = {
             timestamp: new Date().toISOString(),
-            fields: payloadFields,
+            fields: fields,
             fileName: file.name,
             fileBase64: fileBase64.replace(/^data:application\/pdf;base64,/, '')
           };
 
-          // POST ke Apps Script Web App
           const resp = await fetch(BACKEND_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -558,14 +405,12 @@
             throw new Error('Backend error: ' + resp.status + ' ' + txt);
           }
 
-          // sukses
           form.reset();
           document.getElementById('successModal').style.display = 'block';
-          submitButton.disabled = false;
-          submitButton.textContent = originalButtonText;
         } catch (err) {
           console.error(err);
           alert('Gagal mengirim data: ' + err.message);
+        } finally {
           submitButton.disabled = false;
           submitButton.textContent = originalButtonText;
         }
