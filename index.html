@@ -2,208 +2,116 @@
 <html>
   <head>
     <base target="_top">
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Lamaran Kerja - SIMGROUP</title>
     <style>
       body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #D9ECF6;
-  margin: 0;
-  padding: 40px;
-}
-     .container {
-  position: relative;
-  max-width: 700px;
-  width: 100%;
-  margin: -20px auto 0 auto;
-  background-color: #fff;
-  padding: 30px 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-    
-
-    .container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 10px; /* ~1 cm (10px) */
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: #003366; /* biru tua */
-    }
-
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #D9ECF6;
+        margin: 0;
+        padding: 40px;
+      }
+      .container {
+        position: relative;
+        max-width: 700px;
+        width: 100%;
+        margin: -20px auto 0 auto;
+        background-color: #fff;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 10px;
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: #003366;
+      }
       .header { text-align: center; margin-bottom: 30px; }
-.header img {
-  width: calc(100% + 80px);
-  height: auto;
-  display: block;
-  margin: -20px 0 15px -40px;
-  border-radius: 0;
-}
-
-/* Adjust header image for mobile */
-@media (max-width: 600px) {
-  .header img {
-    width: 100%; /* Adjust to 100% width on small screens */
-    margin: 0;
-  }
-}
-
-
+      .header img {
+        width: calc(100% + 80px);
+        height: auto;
+        display: block;
+        margin: -20px 0 15px -40px;
+        border-radius: 0;
+      }
+      @media (max-width: 600px) {
+        .header img { width: 100%; margin: 0; }
+      }
       .header h1 { font-size: 33px; color: #333; margin: 0; font-weight: bold; }
       .header p { font-size: 14px; color: #666; margin-top: -2px; }
-      
-.notice-wrapper {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin: 20px 0 30px 0;
-}
 
-.notice-wrapper img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  border-radius: 4px;
-  margin-top: 5px;
-}
-
-.notice {
-  background-color: #fff8e5;
-  border-left: 4px solid #ffa500;
-  padding: 10px 15px;
-  border-radius: 6px;
-  font-size: 16px;
-  color: #555;
-  flex: 1;
-  text-align: justify; /* ⬅️ Ini yang meratakan kanan kiri */
-}
-
-
-
-      
-      .notice a {
-        color: #0077cc;
-        text-decoration: none;
-        font-weight: bold;
+      .notice-wrapper { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0 30px 0; }
+      .notice-wrapper img { width: 80px; height: 80px; object-fit: contain; border-radius: 4px; margin-top: 5px; }
+      .notice {
+        background-color: #fff8e5;
+        border-left: 4px solid #ffa500;
+        padding: 10px 15px;
+        border-radius: 6px;
+        font-size: 16px;
+        color: #555;
+        flex: 1;
+        text-align: justify;
       }
+      .notice a { color: #0077cc; text-decoration: none; font-weight: bold; }
+
       label { display: block; margin-top: 20px; font-weight: 600; color: #333; }
       input, select, textarea {
-  width: 100%;
-  padding: 10px 1px;
-  margin-top: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border-color 0.3s ease;
-}
-      input:focus, select:focus, textarea:focus { border-color: #0077cc; outline: none; }
-      button {
-  margin-top: 30px;
-  width: 100%;  /* Full width on mobile */
-  padding: 12px;
-  background-color: #0077cc;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-      button:hover { background-color: #005fa3; }
-      .modal { display: none; position: fixed; z-index: 100; padding-top: 120px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.4); }
-      .modal-content {
-  width: 80%;
-  max-width: 600px;
-  margin: auto;
-  padding: 25px;
-  border: 1px solid #888;
-  border-radius: 10px;
-  text-align: center;
-  background-color: #fff; /* Pastikan konten tetap putih solid */
-}
-
-<textarea name="kec._domisili" style="height: 40px; resize: none;"></textarea>
-
-<textarea name="kel._kelurahan" style="height: 40px; resize: none;"></textarea>
-
-
-/* Modal styling for smaller screens */
-@media (max-width: 600px) {
-  .modal-content {
-    width: 90%;  /* Adjust modal width for small screens */
-  }
-}
-      .modal-content h2 { color: #0077cc; }
-      .modal-content p {
+        width: 100%;
+        padding: 10px 1px;
+        margin-top: 6px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
         font-size: 14px;
-        color: #444;
-        margin-top: 10px;
-        line-height: 1.5;
+        transition: border-color 0.3s ease;
       }
+      input:focus, select:focus, textarea:focus { border-color: #0077cc; outline: none; }
 
-
-      .modal-content .ig-list {
-      text-align: left;
-      margin-top: 15px;
-      font-size: 12px;
-    }
-
-
-      .modal-content .ig-list strong {
-        display: inline-block;
-        width: 250px;
+      button {
+        margin-top: 30px;
+        width: 100%;
+        padding: 12px;
+        background-color: #0077cc;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
       }
+      button:hover { background-color: #005fa3; }
 
+      .modal { display: none; position: fixed; z-index: 100; padding-top: 120px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); }
+      .modal-content {
+        width: 80%;
+        max-width: 600px;
+        margin: auto;
+        padding: 25px;
+        border: 1px solid #888;
+        border-radius: 10px;
+        text-align: center;
+        background-color: #fff;
+      }
+      .modal-content h2 { color: #0077cc; }
+      .modal-content p { font-size: 14px; color: #444; margin-top: 10px; line-height: 1.5; }
+      .modal-content .ig-list { text-align: left; margin-top: 15px; font-size: 12px; }
+      .modal-content .ig-list strong { display: inline-block; width: 250px; }
       .close-btn { margin-top: 20px; background-color: #0077cc; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; }
-      
+
       @media (max-width: 600px) {
-.modal-content .ig-list strong {
-        display: inline-block;
-        width: 180px;
+        .modal-content { width: 95%; padding: 20px; }
+        .modal-content .ig-list strong { width: 180px; }
+        body { padding: 20px; }
+        .container { padding: 15px; }
+        label, input, select, textarea, button { font-size: 14px; }
       }
-
-  body {
-    padding: 20px;
-  }
-
-  .container {
-    padding: 15px;
-  }
-
-  label, input, select, textarea, button {
-    font-size: 14px;
-  }
-
-.notice {
-    font-size: 12px;
-    padding: 8px 12px;
-  }
-
-  /* Adjust modal for smaller screens */
-  .modal-content {
-    width: 95%;  /* Make sure modal fits well */
-    padding: 20px;
-  }
-
-  /* Adjust modal for smaller screens */
-  .modal-content {
-    width: 95%;  /* Make sure modal fits well */
-    padding: 20px;
-  }
-
-  /* Buttons inside modal */
-  .close-btn {
-    width: 100%;
-    padding: 12px;
-  }
-}
-
-      
     </style>
   </head>
 
@@ -211,17 +119,17 @@
     <div class="container">
       <div class="header">
         <img src="https://res.cloudinary.com/djo0ewqoz/image/upload/v1746072866/WhatsApp_Image_2025-04-30_at_16.12.56_wgcbqt.jpg" alt="Logo">
-        <h1>MRM - Form Lamaran Kerja</h1>
+        <h1>Form Lamaran Kerja - SIMGROUP</h1>
         <p>SIMGROUP adalah perusahaan penyedia dan pengelola tenaga kerja alih daya (outsourcing)<br>untuk berbagai sektor industri di Indonesia</p>
       </div>
- <div class="notice-wrapper">
-  <div class="notice">
-    Apabila Anda menemukan penipuan/pemungutan biaya yang mengatasnamakan PT Swakarya Insan Mandiri, bantu kami dengan melaporkannya ke Layanan Pengaduan SIMGROUP melalui Customer Service SIM:
-    <a href="http://bit.ly/TiketSISKA" target="_blank">http://bit.ly/TiketSISKA</a>
-  </div>
-  <img src="https://res.cloudinary.com/djo0ewqoz/image/upload/c_crop,ar_9:16/v1749719941/WhatsApp_Image_2025-06-12_at_16.18.24_kom9gl.jpg" alt="Ikon">
-</div>
 
+      <div class="notice-wrapper">
+        <div class="notice">
+          Apabila Anda menemukan penipuan/pemungutan biaya yang mengatasnamakan PT Swakarya Insan Mandiri, bantu kami dengan melaporkannya ke Layanan Pengaduan SIMGROUP melalui Customer Service SIM:
+          <a href="http://bit.ly/TiketSISKA" target="_blank">http://bit.ly/TiketSISKA</a>
+        </div>
+        <img src="https://res.cloudinary.com/djo0ewqoz/image/upload/c_crop,ar_9:16/v1749719941/WhatsApp_Image_2025-06-12_at_16.18.24_kom9gl.jpg" alt="Ikon">
+      </div>
 
       <form id="dynamicForm">
         <label>Email Aktif</label>
@@ -239,10 +147,10 @@
         <input type="date" name="tanggal_lahir" required>
 
         <label>Nomor WA Aktif</label>
-<input type="text" name="nomor_wa" required pattern="^0[0-9]{9,}$" title="Nomor WA harus dimulai dengan 0 dan diikuti oleh angka" placeholder="Contoh: 081234567890">
+        <input type="text" name="nomor_wa" required pattern="^0[0-9]{9,}$" title="Nomor WA harus dimulai dengan 0 dan diikuti oleh angka" placeholder="Contoh: 081234567890">
 
         <label>Nomor HP Aktif</label>
-<input type="text" name="nomor_hp" required pattern="^0[0-9]{9,}$" title="Nomor HP harus dimulai dengan 0 dan diikuti oleh angka" placeholder="Contoh: 081234567890">
+        <input type="text" name="nomor_hp" required pattern="^0[0-9]{9,}$" title="Nomor HP harus dimulai dengan 0 dan diikuti oleh angka" placeholder="Contoh: 081234567890">
 
         <label>Jenis Kelamin</label>
         <select name="jenis_kelamin" required>
@@ -256,29 +164,20 @@
 
         <label>Durasi Pengalaman Kerja</label>
         <select name="durasi_pengalaman" required id="durasi_pengalaman">
-        <option value="" disabled selected>-- Pilih --</option>
+          <option value="" disabled selected>-- Pilih --</option>
         </select>
 
-<label>Minat Posisi Kerja Pilihan Pertama</label>
-<input type="text" name="minat_posisi_1" list="minatList" placeholder="Silakan ketik atau pilih" required>
-<datalist id="minatList"></datalist>
+        <label>Minat Posisi Kerja Pilihan Pertama</label>
+        <input type="text" name="minat_posisi_1" list="minatList" placeholder="Silakan ketik atau pilih" required>
+        <datalist id="minatList"></datalist>
 
-<label>Minat Posisi Kerja Pilihan Kedua</label>
-<input type="text" name="minat_posisi_2" list="minatList" placeholder="Silakan ketik atau pilih">
-<datalist id="minatList"></datalist>
+        <label>Minat Posisi Kerja Pilihan Kedua</label>
+        <input type="text" name="minat_posisi_2" list="minatList" placeholder="Silakan ketik atau pilih">
+        <p style="font-size: 10px; color: red; margin-top: 3px; margin-bottom: -12px;">*Diisi jika ada</p>
 
-<p style="font-size: 10px; color: red; margin-top: 3px; margin-bottom: -12px;">
-  *Diisi jika ada
-</p>
-
-<label>Minat Posisi Kerja Pilihan Ketiga</label>
-<input type="text" name="minat_posisi_3" list="minatList" placeholder="Silakan ketik atau pilih">
-<datalist id="minatList"></datalist>
-
-<p style="font-size: 10px; color: red; margin-top: 3px; margin-bottom: -12px;">
-  *Diisi jika ada
-</p>
-
+        <label>Minat Posisi Kerja Pilihan Ketiga</label>
+        <input type="text" name="minat_posisi_3" list="minatList" placeholder="Silakan ketik atau pilih">
+        <p style="font-size: 10px; color: red; margin-top: 3px; margin-bottom: -12px;">*Diisi jika ada</p>
 
         <label>Pendidikan Terakhir</label>
         <select name="pendidikan_terakhir" required id="pendidikan_terakhir">
@@ -286,56 +185,49 @@
         </select>
 
         <label>Nama Sekolah / Nama Universitas</label>
-<input type="text" name="nama_sekolah" list="universitasList" placeholder="Silakan ketik atau pilih" required>
-<datalist id="universitasList"></datalist>
+        <input type="text" name="nama_sekolah" list="universitasList" placeholder="Silakan ketik atau pilih" required>
+        <datalist id="universitasList"></datalist>
 
         <label for="jurusanInput">Jurusan</label>
-<input type="text" id="jurusanInput" name="jurusan" list="jurusanList" placeholder="Silakan ketik atau pilih" required>
-<datalist id="jurusanList"></datalist>
-
+        <input type="text" id="jurusanInput" name="jurusan" list="jurusanList" placeholder="Silakan ketik atau pilih" required>
+        <datalist id="jurusanList"></datalist>
 
         <label>Kepemilikan Kendaraan</label>
-        <select name="kepemilikan_kendaraan" equired id="kepemilikan_kendaraan">
+        <select name="kepemilikan_kendaraan" required id="kepemilikan_kendaraan">
           <option value="" disabled selected>-- Pilih --</option>
         </select>
 
         <label>Kepemilikan SIM Aktif</label>
-        <select name="kepemilikan_sim" equired id="kepemilikan_sim">
+        <select name="kepemilikan_sim" required id="kepemilikan_sim">
           <option value="" disabled selected>-- Pilih --</option>
         </select>
 
         <label>Alamat Domisili</label>
         <textarea name="alamat_domisili" required></textarea>
 
-        <label>Kec. Domisili</label> 
-<input type="text" name="kec._domisili" required>
+        <label>Kec. Domisili</label>
+        <input type="text" name="kec._domisili" required>
 
-
-<label>Provinsi Domisili</label>
-<select name="provinsi_domisili" required id="provinsi_domisili">
-  <option value="" disabled selected>-- Pilih --</option>
-</select>
+        <label>Provinsi Domisili</label>
+        <select name="provinsi_domisili" required id="provinsi_domisili">
+          <option value="" disabled selected>-- Pilih --</option>
+        </select>
 
         <label>Upload CV (PDF)</label>
         <input type="file" name="upload_cv" accept="application/pdf" required>
 
         <label>Provinsi Minat Penempatan</label>
         <select name="provinsi_penempatan" required id="provinsi_penempatan">
-        <option value="" disabled selected>-- Pilih --</option>
+          <option value="" disabled selected>-- Pilih --</option>
         </select>
-
-        <p style="font-size: 10px; color: red; margin-top: 3px; margin-bottom: -12px;">
-  *Pilih Provinsi Penempatan agar dapat memilih Kota penempatan
-</p>
+        <p style="font-size: 10px; color: red; margin-top: 3px; margin-bottom: -12px;">*Pilih Provinsi Penempatan agar dapat memilih Kota penempatan</p>
 
         <label>Kota Minat Penempatan</label>
         <select name="kota_penempatan" required id="kota_penempatan">
           <option value="" disabled selected>-- Pilih --</option>
         </select>
 
-
-
-<button type="submit">Kirim</button>
+        <button type="submit">Kirim</button>
       </form>
     </div>
 
@@ -352,7 +244,7 @@
           <strong>Loker wilayah Jawa Tengah</strong> @simgroupjateng<br>
           <strong>Loker wilayah Jawa Timur</strong> @simgroupjawatimur<br>
           <strong>Loker wilayah Kalimantan</strong> @simgroupkalimantan<br>
-          <strong>Loker wilayah Sumatera</strong> @simgroupsumbagut <br>
+          <strong>Loker wilayah Sumatera</strong> @simgroupsumbagut<br>
           <strong>Loker wilayah Sumatera</strong> @simgroupsumbagsel<br>
           <strong>Loker wilayah Sulawesi, Maluku & Papua</strong> @simgroupsulampapua<br>
           <strong>Loker wilayah Bali & Nusa Tenggara</strong> @simgroupbalinusra
@@ -366,32 +258,176 @@
     </div>
 
     <script>
-      const form = document.getElementById('dynamicForm');
+      /* -------------------------
+         CONFIG - sesuaikan bila perlu
+         ------------------------- */
+      const SPREADSHEET_ID = '1pvcbVAtI0IQgLlSItPz32pXB4QSQYgyq1TBbmEc14_k';
+      const SHEET_MASTER_NAME = 'master'; // sheet yang berisi opsi dropdown
+      // Backend Google Apps Script Web App (doPost) yang menulis ke sheet "Responses"
+      // Saya isi dengan URL yang pernah Anda pakai sebelumnya; ganti jika berbeda.
+      const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbyM6urVW7BNJtJhXfu2MEU2F1RP0SDfCnfb9OCRCtKPqMvwOidW9gktjMMgI_xUchI1/exec';
 
-      window.onload = function() {
-        const universitasList = document.getElementById('universitasList');
+      /* -------------------------
+         Utility: ambil data sheet 'master' lewat gviz/tq
+         (returns parsed rows/cols)
+         ------------------------- */
+      async function fetchSheetAsTable(sheetName) {
+        const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
+        const res = await fetch(url);
+        const txt = await res.text();
+        // gviz returns "/*O_o*/\ngoogle.visualization.Query.setResponse(...);"
+        const jsonStr = txt.replace(/^[^\(]*\(/, '').replace(/\);?\s*$/, '');
+        const obj = JSON.parse(jsonStr);
+        const table = obj.table;
+        // columns:
+        const cols = table.cols.map(c => c.label);
+        // rows:
+        const rows = table.rows.map(r => r.c.map(cell => cell ? (cell.v ?? '') : ''));
+        return { cols, rows };
+      }
 
-        dropdownData.namaUniversitas.forEach(function(univ) {
+      /* -------------------------
+         Map results master -> dropdownData
+         Anda bisa menyesuaikan kolom mana yang berisi opsi:
+         - Sumber Informasi Lowongan
+         - Durasi Pengalaman
+         - Minat Posisi (kita kumpulkan unik dari kolom MINAT POSISI KERJA PERTAMA/KE/dst)
+         - Pendidikan Terakhir
+         - Nama Universitas
+         - Jurusan
+         - Kepemilikan Kendaraan
+         - Kepemilikan SIM
+         - Provinsi (untuk domisili & penempatan)
+         - Provinsi -> Kota (jika ada)
+         ------------------------- */
+      const dropdownData = {
+        sumberInformasi: [],
+        durasi: [],
+        minatPosisi: [],
+        pendidikan: [],
+        namaUniversitas: [],
+        jurusan: [],
+        kendaraan: [],
+        sim: [],
+        provinsi: [],
+        provinsiKotaMap: {} // optional; diisi bila ada kolom kota terkait
+      };
+
+      function uniqueSorted(arr) {
+        return Array.from(new Set(arr.filter(Boolean))).sort();
+      }
+
+      async function populateDropdownsFromMaster() {
+        try {
+          const table = await fetchSheetAsTable(SHEET_MASTER_NAME);
+          const cols = table.cols;
+          const rows = table.rows;
+
+          // Cari index kolom berdasarkan label (case-insensitive)
+          const idx = {};
+          cols.forEach((c, i) => idx[c ? c.toString().toLowerCase().trim() : ('col'+i)] = i);
+
+          // beberapa nama kolom yang nampak di sheet:
+          // 'sumber informasi lowongan', 'durasi pengalaman kerja', 'minat posisi kerja pertama', ...
+          rows.forEach(r => {
+            const get = (keyCandidates) => {
+              for (const k of keyCandidates) {
+                const key = k.toLowerCase();
+                if (idx.hasOwnProperty(key)) {
+                  return r[idx[key]] || '';
+                }
+              }
+              // fallback: try exact known header keys
+              for (const k in idx) {
+                if (keyCandidates.includes(k)) return r[idx[k]] || '';
+              }
+              return '';
+            };
+
+            // Ambil many candidates by label variants
+            const sumber = (r[idx['sumber informasi lowongan']] || '') || (r[idx['sumber informasi']]);
+            if (sumber) dropdownData.sumberInformasi.push(String(sumber).trim());
+
+            const durasi = (r[idx['durasi pengalaman kerja']] || r[idx['durasi']]);
+            if (durasi) dropdownData.durasi.push(String(durasi).trim());
+
+            const min1 = r[idx['minat posisi kerja pertama']] || r[idx['minat posisi kerja pertamaa']] || r[idx['minat posisi kerja']] || r[idx['minat posisi kerja pertama']];
+            const min2 = r[idx['minat posisi kerja kedua']] || '';
+            const min3 = r[idx['minat posisi kerja ketiga']] || '';
+            [min1, min2, min3].forEach(x => { if (x) dropdownData.minatPosisi.push(String(x).trim()); });
+
+            const pendidikan = (r[idx['pendidikan terakhir']] || '');
+            if (pendidikan) dropdownData.pendidikan.push(String(pendidikan).trim());
+
+            const univ = (r[idx['nama sekolah / nama univeritas']] || r[idx['nama sekolah / nama universitas']] || r[idx['nama sekolah / nama universitas']]);
+            if (univ) dropdownData.namaUniversitas.push(String(univ).trim());
+
+            const jur = (r[idx['jurusan']] || '');
+            if (jur) dropdownData.jurusan.push(String(jur).trim());
+
+            const kendaraan = (r[idx['kepemilikan kendaraan']] || '');
+            if (kendaraan) dropdownData.kendaraan.push(String(kendaraan).trim());
+
+            const sim = (r[idx['kepemilikan sim aktif']] || r[idx['kepemilikan sim']] || '');
+            if (sim) dropdownData.sim.push(String(sim).trim());
+
+            // provinsi / kota: kita ambil dari kolom yg mengandung 'provinsi' / 'kota'
+            const prov = (r[idx['provinsi minat penempatan']] || r[idx['provinsi minat penempatan']] || r[idx['provinsi minat penempatan']] || r[idx['provinsi domisili']] || r[idx['provinsi minat penempatan'.toLowerCase()]]);
+            if (prov) dropdownData.provinsi.push(String(prov).trim());
+
+            const kota = (r[idx['kota minat penempatan']] || r[idx['kota minat penempatan']] || '');
+            if (prov && kota) {
+              const p = String(prov).trim();
+              const k = String(kota).trim();
+              dropdownData.provinsiKotaMap[p] = dropdownData.provinsiKotaMap[p] || [];
+              dropdownData.provinsiKotaMap[p].push(k);
+            }
+          });
+
+          // unikkan & sort
+          dropdownData.sumberInformasi = uniqueSorted(dropdownData.sumberInformasi);
+          dropdownData.durasi = uniqueSorted(dropdownData.durasi);
+          dropdownData.minatPosisi = uniqueSorted(dropdownData.minatPosisi);
+          dropdownData.pendidikan = uniqueSorted(dropdownData.pendidikan);
+          dropdownData.namaUniversitas = uniqueSorted(dropdownData.namaUniversitas);
+          dropdownData.jurusan = uniqueSorted(dropdownData.jurusan);
+          dropdownData.kendaraan = uniqueSorted(dropdownData.kendaraan);
+          dropdownData.sim = uniqueSorted(dropdownData.sim);
+          dropdownData.provinsi = uniqueSorted(dropdownData.provinsi);
+          // unique kota lists
+          for (const p in dropdownData.provinsiKotaMap) {
+            dropdownData.provinsiKotaMap[p] = uniqueSorted(dropdownData.provinsiKotaMap[p]);
+          }
+
+          // sekarang isi UI
+          populateUIFromDropdownData();
+
+        } catch (err) {
+          console.error('Gagal ambil master sheet:', err);
+          // fallback sederhana: Anda bisa isi default options di sini jika perlu
+        }
+      }
+
+      function populateUIFromDropdownData() {
+        const universitList = document.getElementById('universitasList');
+        dropdownData.namaUniversitas.forEach(univ => {
           const option = document.createElement('option');
           option.value = univ;
-          universitasList.appendChild(option);
+          universitList.appendChild(option);
         });
 
-const minatList = document.getElementById('minatList');
-dropdownData.minatPosisi.forEach(function(min) {
-  const option = document.createElement('option');
-  option.value = min;
-  minatList.appendChild(option);  // ✅ gunakan 'minatList'
-});
-
-
+        const minatList = document.getElementById('minatList');
+        dropdownData.minatPosisi.forEach(min => {
+          const opt = document.createElement('option');
+          opt.value = min;
+          minatList.appendChild(opt);
+        });
 
         const jurusanList = document.getElementById('jurusanList');
-        dropdownData.jurusan.forEach(function(jurusan) {
-        const option = document.createElement('option');
-        option.value = jurusan;
-        option.textContent = jurusan;  // ✅ tambah textContent (optional tapi bagus)
-        jurusanList.appendChild(option);
+        dropdownData.jurusan.forEach(j => {
+          const opt = document.createElement('option');
+          opt.value = j;
+          jurusanList.appendChild(opt);
         });
 
         const sumberDropdown = document.getElementById('sumber_informasi');
@@ -415,7 +451,6 @@ dropdownData.minatPosisi.forEach(function(min) {
           pendidikanDropdown.appendChild(option);
         });
 
-
         const simDropdown = document.getElementById('kepemilikan_sim');
         dropdownData.sim.forEach(item => {
           const option = document.createElement('option');
@@ -430,22 +465,20 @@ dropdownData.minatPosisi.forEach(function(min) {
           kendaraanDropdown.appendChild(option);
         });
 
-                const provinsiDomisiliDropdown = document.getElementById('provinsi_domisili');
-dropdownData.provinsi.forEach(item => {
-  const option = document.createElement('option');
-  option.value = item;
-  option.textContent = item;
-  provinsiDomisiliDropdown.appendChild(option);
-});
-
+        const provinsiDomisiliDropdown = document.getElementById('provinsi_domisili');
         const provinsiDropdown = document.getElementById('provinsi_penempatan');
-        const kotaDropdown = document.getElementById('kota_penempatan');
         dropdownData.provinsi.forEach(item => {
-          const option = document.createElement('option');
-          option.value = item; option.textContent = item;
-          provinsiDropdown.appendChild(option);
+          const option1 = document.createElement('option');
+          option1.value = item; option1.textContent = item;
+          provinsiDomisiliDropdown.appendChild(option1);
+
+          const option2 = document.createElement('option');
+          option2.value = item; option2.textContent = item;
+          provinsiDropdown.appendChild(option2);
         });
 
+        // saat provinsi penempatan berubah -> isi kota
+        const kotaDropdown = document.getElementById('kota_penempatan');
         provinsiDropdown.addEventListener('change', function() {
           kotaDropdown.innerHTML = '<option value="" disabled selected>-- Pilih --</option>';
           const selectedProvinsi = this.value;
@@ -456,63 +489,100 @@ dropdownData.provinsi.forEach(item => {
             kotaDropdown.appendChild(option);
           });
         });
-        };
-        
-     form.addEventListener('submit', function(e) {
-  e.preventDefault();
+      }
 
-  const submitButton = form.querySelector('button');
-  submitButton.disabled = true;
-  const originalButtonText = submitButton.textContent;
-  submitButton.textContent = 'Mengirim...';
+      // Inisialisasi saat load
+      window.addEventListener('load', () => {
+        populateDropdownsFromMaster();
+      });
 
-  const formData = new FormData(form);
-  const values = [];
-  form.querySelectorAll('input, select, textarea').forEach(input => {
-    if (input.name !== 'upload_cv') values.push(formData.get(input.name));
-  });
+      /* -------------------------
+         Handling form submit:
+         Kirim ke BACKEND_URL sebagai JSON
+         Backend diharapkan menulis ke sheet "Responses"
+         ------------------------- */
+      const form = document.getElementById('dynamicForm');
 
-  const file = formData.get('upload_cv');
-  if (!file || file.type !== 'application/pdf') {
-    alert('Mohon upload file PDF.');
-    submitButton.disabled = false;
-    submitButton.textContent = originalButtonText;
-    return;
-  }
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
 
-  if (file.size > 2 * 1024 * 1024) { // 2MB
-    alert('Ukuran file maksimum 2MB.');
-    submitButton.disabled = false;
-    submitButton.textContent = originalButtonText;
-    return;
-  }
+        const submitButton = form.querySelector('button');
+        submitButton.disabled = true;
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = 'Mengirim...';
 
-  const reader = new FileReader();
-  reader.onload = function() {
-    const base64 = reader.result.split(',')[1];
-    google.script.run
-      .withSuccessHandler(() => {
-        form.reset();
-        document.getElementById('successModal').style.display = 'block';
-        submitButton.disabled = false;
-        submitButton.textContent = originalButtonText;
-      })
-      .withFailureHandler(error => {
-        alert('Gagal mengirim data: ' + error.message);
-        submitButton.disabled = false;
-        submitButton.textContent = originalButtonText;
-      })
-      .uploadCV(values, base64, file.name);
-  };
-  reader.readAsDataURL(file);
-});
+        const fd = new FormData(form);
 
-function closeModal() {
-  document.getElementById('successModal').style.display = 'none';
-}
+        // Validasi file PDF
+        const file = fd.get('upload_cv');
+        if (!file || file.type !== 'application/pdf') {
+          alert('Mohon upload file PDF.');
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+          return;
+        }
+        if (file.size > 2 * 1024 * 1024) {
+          alert('Ukuran file maksimum 2MB.');
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+          return;
+        }
 
+        try {
+          const fileBase64 = await toBase64(file);
 
+          // kumpulkan fields (kecuali file)
+          const payloadFields = {};
+          form.querySelectorAll('input[name], select[name], textarea[name]').forEach(inp => {
+            if (inp.name === 'upload_cv') return;
+            const val = inp.value;
+            payloadFields[inp.name] = val;
+          });
 
+          const payload = {
+            timestamp: new Date().toISOString(),
+            fields: payloadFields,
+            fileName: file.name,
+            fileBase64: fileBase64.replace(/^data:application\/pdf;base64,/, '')
+          };
+
+          // POST ke Apps Script Web App
+          const resp = await fetch(BACKEND_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if (!resp.ok) {
+            const txt = await resp.text();
+            throw new Error('Backend error: ' + resp.status + ' ' + txt);
+          }
+
+          // sukses
+          form.reset();
+          document.getElementById('successModal').style.display = 'block';
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        } catch (err) {
+          console.error(err);
+          alert('Gagal mengirim data: ' + err.message);
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      });
+
+      function toBase64(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+      }
+
+      function closeModal() {
+        document.getElementById('successModal').style.display = 'none';
+      }
     </script>
   </body>
 </html>
